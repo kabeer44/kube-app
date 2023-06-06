@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: vprodb
-          image: kabeer04/vprofiledb:V1
+          image: vprofile/vprofiledb
           args:
             - "--ignore-db-dir=lost+found"
           volumeMounts:
@@ -32,9 +32,10 @@ spec:
                   name: app-secret
                   key: db-pass
       nodeSelector:
-        zone: us-east-1a
+        zone: us-east-2b
       volumes:
         - name: vpro-db-data
+          # This AWS EBS volume must already exist.
           awsElasticBlockStore:
-            volumeID: vol-085b8e0656df10019
+            volumeID: EBSVolumeID
             fsType: ext4
