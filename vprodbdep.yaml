@@ -39,5 +39,3 @@ spec:
           awsElasticBlockStore:
             volumeID: EBSVolumeID
             fsType: ext4
-
-            # This is a Comment
